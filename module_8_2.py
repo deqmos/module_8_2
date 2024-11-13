@@ -6,13 +6,15 @@ def personal_sum(numbers):
             result += i
         except TypeError as exc:
             incorrect_data += 1
+            print(f'Некорректный тип данных для подсчёта суммы - {i}')
 
     return result, incorrect_data
 
 
 def calculate_average(numbers):
     try:
-        return f"{personal_sum(numbers)[0] / len(numbers)}, Количество ошибочных данных: {personal_sum(numbers)[1]}"
+        res_pers_sum = personal_sum(numbers)
+        return f"{res_pers_sum[0] / len(numbers)}, Количество ошибочных данных: {res_pers_sum[1]}"
     except ZeroDivisionError:
         return 0
     except TypeError:
